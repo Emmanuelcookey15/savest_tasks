@@ -1,0 +1,75 @@
+{% extends 'admin/change_list.html' %}
+
+
+{% block object-tools %}
+
+<style>
+.button {
+border: none;
+color: white;
+background-color: #79aec8;
+padding: 10px 15px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+margin: 20px 1px;
+cursor: pointer;
+}
+.card{
+  border-radius:5px;
+  backgroud: #cccccc;
+  width: 250px;
+  border: none;
+  /* min-height:100px; */
+  padding:20px;
+  margin: 10px 10px;
+  box-shadow: 0.5px 1px 10px 3px #cccccc;
+}
+
+.card p{
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0px;
+  color: #79aec8;
+}
+.card-group{
+  width:100%;
+  display:flex;
+  justify-contect:space-between;
+  flex-flex: row wrap;
+  margin-bottom: 50px;
+}
+</style>
+
+<a href="{% url 'users:send_email' %}"><button  class="button" type="button">
+  Send Users Email</button></a>
+
+  <br> <br> <hr> <br>
+
+  <h1>User Metrics</h1>
+    <div class="card-group">
+      <div class="card">
+            <h3>Users For Today:</h3>
+            <p>{{ today }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Users For The Past 7 Days:</h3>
+          <p>{{ this_week }}<p>
+      </div>
+
+      <div class="card">
+        <h3>Users For This Month:</h3>
+          <p>{{ this_month }}<p>
+      </div>
+    </div>
+
+
+    {{ block.super }}
+{% endblock object-tools %}
+
+{% block content_title  %}
+
+
+
+{% endblock %}
