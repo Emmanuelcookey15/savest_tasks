@@ -6,7 +6,7 @@ from django.utils import timezone
 from .models import User
 
 # Register your models here.
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(admin.ModelAdmin):
 
     list_display = ('email', 'first_name', 'last_name', 'is_active', 'is_staff')
     list_filter = ('date_joined', )
