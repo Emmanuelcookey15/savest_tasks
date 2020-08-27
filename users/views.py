@@ -10,6 +10,10 @@ from django.apps import apps
 User = apps.get_model('users', 'User')
 
 
+def index(request):
+    return render(request, 'admin/users/index.html')
+
+
 def send_email(request):
     if request.method == 'POST':
         email_body = request.POST.get("email")
